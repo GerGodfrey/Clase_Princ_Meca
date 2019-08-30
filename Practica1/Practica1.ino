@@ -11,7 +11,9 @@ int led = 13;
 int led2 = 7;
 int analogPin = A0;
 int val = 0;
-
+int pin = A1;
+int v2;
+int porcent;
 
 // the setup routine runs once when you press reset:
 void setup() {                
@@ -23,12 +25,20 @@ void setup() {
 // the loop routine runs over and over again forever:
 void loop() {
   val = analogRead (analogPin);
+  v2 = analogRead (pin);
   delay (100);
-  Serial.print("Valor de res ");
+  Serial.print("Valor fotoresistencia: ");
   Serial.println(val);
-  Serial.println(val>1000);
+  Serial.print("Valor potenciometro: ");
+  Serial.println(v2);
   
-  if(val>1000){
+  porcent= map(v2,0,1023,0,100);
+  
+  Serial.println("Valor de oscuridad ");
+  Serial.println(porcent);
+  
+  //Control automatico
+  /*if(val>1000){
     digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
     digitalWrite(7, HIGH);
     //delay(1000);               // wait for a second
@@ -38,5 +48,18 @@ void loop() {
     digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
     digitalWrite(7, LOW);
     //delay(1000);
-  }    // wait for a second
+  }    */
+  
+  //Control manual
+  if(porcent>50){
+    digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+    digitalWrite(7, HIGH);
+    //delay(1000);               // wait for a second
+  } 
+  
+  else{
+    digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+    digitalWrite(7, LOW);
+    //delay(1000);
+  }
 }
