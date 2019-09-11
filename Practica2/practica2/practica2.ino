@@ -1,4 +1,4 @@
-int led1 = 7;
+int led1 = 6;
 int led2 = 8;
 int led3 = 9;
 int led4 = 10;
@@ -11,20 +11,61 @@ void setup(){
 void loop(){
   asm volatile(
     "inicio: \n\t"     
-    "sbi 0x05,0x06 \n\t" //digitalwrite (high)
+
+    "sbi 0x05,0x07 \n\t"
     "call tiempo \n\t"
-    "cbi 0x05,0x06 \n\t" //digitalwrite (low)
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "cbi 0x05,0x07 \n\t" //digitalwrite (low)
+
+    
+    "sbi 0x05,0x04 \n\t" //digitalwrite (high)
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "cbi 0x05,0x04 \n\t" //digitalwrite (low)
     
     "sbi 0x05,0x05 \n\t"
     "call tiempo \n\t"
-    "call tiempo \n\t"  
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
     "cbi 0x05,0x05 \n\t" //digitalwrite (low)
     
-    "sbi 0x05,0x04 \n\t"
+    "sbi 0x05,0x06 \n\t"
     "call tiempo \n\t"
     "call tiempo \n\t"
-    "call tiempo \n\t" 
-    "cbi 0x05,0x04 \n\t" //digitalwrite (low)
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "call tiempo \n\t"
+    "cbi 0x05,0x06 \n\t" //digitalwrite (low)
+
+
     
     "jmp main \n\t"
 
