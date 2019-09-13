@@ -12,8 +12,6 @@ void loop(){
   asm volatile(
     "inicio: \n\t"   
       
-  //AMARILLO PRIMERO
-    
     "sbi 0x05,0x07 \n\t"
     "call tiempo \n\t"
     "cbi 0x05,0x07 \n\t" //digitalwrite (low)
