@@ -31,6 +31,6 @@ void loop(){
 //Rutina para contar cada que se oprime el botón
 ISR(INT1_vect){
   cont++;
-  
+  //vemos el valor del incremento del contador
   Serial.println(cont);
 }
