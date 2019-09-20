@@ -1,4 +1,4 @@
-int led=20;
+int led=5;
 int btn=A9;
 int cont=0;
 int btns=0;
@@ -9,7 +9,7 @@ void setup(){
   pinMode(btn, INPUT);
   
   cli();
-  DDRD = (1 << DDD1);
+  DDRD = B11111110;
   PORTD |= (1 << PORTD1);
   EICRA |= (1 << ISC11);
   EIMSK |= (1 << INT1);
@@ -19,18 +19,15 @@ void setup(){
 
 void loop(){
   btns=analogRead(btn);
-  
-  //Led encendiendo y apagando a 1Hz
   digitalWrite(led, HIGH);
   delay(1000);
   digitalWrite(led, LOW);
   delay(1000);
-  
 }
 
 //Rutina para contar cada que se oprime el botón
 ISR(INT1_vect){
-  cont++;
-  //vemos el valor del incremento del contador
-  Serial.println(cont);
+    cont++;
+    Serial.println("EL CONTADOR ES:");
+    Serial.println(cont);
 }
