@@ -9,16 +9,20 @@ void setup(){
   pinMode(btn, INPUT);
   
   cli();
-  DDRD = B11111110;
+  DDRD &= ~(1 << DDD1);
   PORTD |= (1 << PORTD1);
-  EICRA |= (1 << ISC11);
+  EICRA |= (1 << ISC10);
   EIMSK |= (1 << INT1);
   sei();
 }
 
 
 void loop(){
-  btns=analogRead(btn);
+  //btns=analogRead(btn);
+  //Rutina de tiempo que hace parpadear 1 led a 1 Hz por segundo
+  //if(btns>100){
+    //Serial.println("Hola");
+  //}
   digitalWrite(led, HIGH);
   delay(1000);
   digitalWrite(led, LOW);
