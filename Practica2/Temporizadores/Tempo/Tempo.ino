@@ -1,5 +1,6 @@
 int led=20;
 int ban=0;
+int cont=0;
 
 void setup(){
   //Configuración del timer1 a 1Hz
@@ -17,8 +18,43 @@ void setup(){
  }
 ISR(TIMER1_OVF_vect){
   //Simulación del semaforo mediante interrupciones del contador
-
+  cont++;
+  Serial.print(cont);
 }
 void loop(){
+  if(cont=12){
+    cont=1;
+  }
+  if(cont=1){
+    asm volatile(
+      //Duracion de 6 segundos en el led rojo
+      "sbi 0x05,0x04 \n\t" //digitalwrite (high)
+      "sbi 0x05,0x01 \n\t" //No sirve debe prender el semaforo del segundo semaforor
+     
+      );
+  }
+  if(cont=4){
+     asm volatile(
+      "cbi 0x05,0x01 \n\t"
+     );
+  }
+  if(cont=6){
+     asm volatile(
+      "cbi 0x05,0x04 \n\t" //digitalwrite (low)
+      "sbi 0x05,0x05 \n\t"
+    ); 
+  }
+
+  if(cont=7){
+    asm volatile(
+      "cbi 0x05,0x05 \n\t"
+      "sbi 0x05,0x06 \n\t"
+    );
+  }
+  if(cont=11){
+    asm volatile(
+      "cbi 0x05,0x06 \n\t"
+    );
+  }
   
 }
