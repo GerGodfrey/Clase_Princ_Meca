@@ -15,22 +15,30 @@ void loop() {
     "call tiempo \n\t"
     "call tiempo \n\t"
     "cbi 0x05,0x01 \n\t" //apaga el verde del segundo semaforo
+    "sbi 0x05,0x00 \n\t"
     "call tiempo \n\t"
     "call tiempo \n\t"
     //Duración de 1 segundo led amarillo
-    "cbi 0x05,0x04 \n\t" //digitalwrite (low)
-    "sbi 0x05,0x05 \n\t"
+    "cbi 0x05,0x00\n\t"
+    "cbi 0x05,0x04 \n\t" //apagar verde01
+    "sbi 0x05,0x06 \n\t" //prender amarillo01
+    "sbi 0x05,0x02 \n\t"
     "call tiempo \n\t"
     //Duracion 4 segundos led verde
     "cbi 0x05,0x05 \n\t"
-    "sbi 0x05,0x06 \n\t"
+    //"sbi 0x05,0x06 \n\t"
+
     "call tiempo \n\t"
     "call tiempo \n\t"
-    "call tiempo \n\t"
+    
+    
     "call tiempo \n\t"
     "cbi 0x05,0x06 \n\t"
+    "cbi 0x05,0x02 \n\t"
+    "sbi 0x05,0x05 \n\t"
     "call tiempo \n\t"
-
+    "call tiempo \n\t"
+    "cbi 0x05,0x05 \n\t"
     "jmp main \n\t"
 
     //Tiempo nos da 2 segundo de delay
