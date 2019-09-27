@@ -1,9 +1,11 @@
-int led=20;
+int led=11;
 int ban=0;
 int cont=0;
 
 void setup(){
   //Configuración del timer1 a 1Hz
+  DDRB = DDRB | B11111111;
+  cli();
   TCCR1A = 0;
   TCCR1B = 0;
   TCNT1  = 0;//inicializamos el contador en 0
@@ -15,11 +17,14 @@ void setup(){
   TCCR1B |= (1 << CS12) | (1 << CS10);  //Se cambian dos registros porque se manejan 16 bits
   // Habilitamos la interrupción por comparación
   TIMSK1 |= (1 << OCIE1A);
+  sei();
+  
  }
 ISR(TIMER1_OVF_vect){
   //Simulación del semaforo mediante interrupciones del contador
   cont++;
   Serial.print(cont);
+  Serial.print("dd");
 }
 void loop(){
   if(cont=12){
