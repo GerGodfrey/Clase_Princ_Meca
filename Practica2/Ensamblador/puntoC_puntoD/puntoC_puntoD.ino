@@ -3,7 +3,7 @@ void setup(){
   DDRB = DDRB | B11111111; //data direction register B: Inputs 0-4 , 6-7, Output 5 (0 entrada y 1 salida)
 }
 
-//
+
 //void loop(){
 //  asm volatile(
 //    "inicio: \n\t"   
@@ -86,7 +86,7 @@ void setup(){
 
 
 
-//PUNTO D 
+////PUNTO D 
 void loop(){
   asm (
   "inicio: \n\t" 
@@ -115,4 +115,3 @@ void loop(){
   "ret \n\t"
   );
 }
-

@@ -5,6 +5,14 @@ void setup() {
   DDRD = DDRD | B11111111;  
 }
 
+//12= verde C 
+//11= amarillo C
+//10= verde C
+
+//53= amarillo F
+//52= verde F
+//51  = rojo
+
 void loop() {
   asm volatile(
     //Duracion de 6 segundos en el led rojo
