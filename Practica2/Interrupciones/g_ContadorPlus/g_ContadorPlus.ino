@@ -1,6 +1,5 @@
 // led pin
 int led_pin = 13;
-
 // interrupt pin
 int interrupt_pin = 2;
 
