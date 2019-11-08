@@ -1,5 +1,5 @@
-int led=5;
-int btn=A9;
+int led=13;
+int btn=2;
 int cont=0;
 int btns=0;
 int band=0;
