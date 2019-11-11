@@ -17,7 +17,7 @@ void loop() {
   asm volatile(
     //Duracion de 6 segundos en el led rojo
     "sbi 0x05,0x04 \n\t" //digitalwrite (high)
-    "sbi 0x05,0x01 \n\t" //No sirve debe prender el semaforo del segundo semaforor
+    "sbi 0x05,0x01 \n\t" 
     "call tiempo \n\t"
     "call tiempo \n\t"
     "call tiempo \n\t"
